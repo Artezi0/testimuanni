@@ -1,33 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react"
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const ada = false
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Ini website testimani</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <main className="main">
+        <h1>Cek Gugus & Kelompok</h1>
+        <h3>Dapatkan informasi mengenai gugus dan kelompokmu!</h3>
+        <section className="main_input">
+          <form>
+            <input type="text" placeholder="Masukkan nama"/>
+            <button type="submit">Cari</button>
+          </form>
+        </section>
+        {ada ? 
+        <section className="main_output">
+          <p className="main_output-name">nama</p>
+          <p className="main_output-gugus">gugus prodi</p>
+          <p className="main_output-kelompok">kelompok</p>
+        </section> : <section className="main_output">
+          <p className="main_output-info">Tidak ditemukan</p>
+        </section>
+        }
+      </main>
     </>
   )
 }
