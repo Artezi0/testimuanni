@@ -1,4 +1,4 @@
-import React from 'react'
+import { Link } from "react-router"
 
 function Navbar() {
   return (
@@ -7,11 +7,9 @@ function Navbar() {
         <img src="/src/assets/img/favicon.svg" alt="icon"/> 
       </div>
       <div className='navbar_menu'>
-        <ul className='navbar_menu-list'>
-          <li className='item'><a href="/">Home</a></li>
-          <li className='item'><a href="/">About</a></li>
-          <li className='item'><a href="/">Rundown</a></li>
-        </ul>
+        <Link className="navbar_menu-link" to="/">Home</Link>
+        <Link className="navbar_menu-link" to="/about">About</Link>
+        <Link className="navbar_menu-link" to="/jadwal">Jadwal</Link>
       </div>
     </nav>
   )

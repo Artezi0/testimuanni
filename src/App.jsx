@@ -1,29 +1,18 @@
-import React from "react"
-
+import { BrowserRouter, Routes, Route } from "react-router"
+import Navbar from "./components/Navbar"
+import Home from "./pages/Home"
+import Jadwal from "./pages/Jadwal"
+import About from "./pages/About"
 function App() {
-  const ada = false
   return (
-    <>
-      <main className="main">
-        <h1>Cek Gugus & Kelompok</h1>
-        <h3>Dapatkan informasi mengenai gugus dan kelompokmu!</h3>
-        <section className="main_input">
-          <form>
-            <input type="text" placeholder="Masukkan nama"/>
-            <button type="submit">Cari</button>
-          </form>
-        </section>
-        {ada ? 
-        <section className="main_output">
-          <p className="main_output-name">nama</p>
-          <p className="main_output-gugus">gugus prodi</p>
-          <p className="main_output-kelompok">kelompok</p>
-        </section> : <section className="main_output">
-          <p className="main_output-info">Tidak ditemukan</p>
-        </section>
-        }
-      </main>
-    </>
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/jadwal" element={<Jadwal />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
