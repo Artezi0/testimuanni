@@ -8,7 +8,7 @@ function Navbar() {
     <nav className='navbar fixed w-full p-4'>
       <div className={`h-18 flex justify-between bg-white ${open ? 'rounded-t-2xl' : 'rounded-2xl'} items-center`}>
         <div className='flex items-center gap-2 ml-10'>
-          <img src="/src/assets/img/favicon.svg" alt="icon" height={50} width={50}/> 
+          <img src="/public/favicon.svg" alt="icon" height={50} width={50}/> 
           <p className="text-xl text-black"><span className="font-bold">Testimuni Mansa</span> #10</p>
         </div>
         {/* Desktop Navigation */}
