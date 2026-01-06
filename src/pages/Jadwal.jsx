@@ -5,7 +5,11 @@ const Jadwal = () => {
     document.title = "Jadwal | Testimuni Mansa #10";
   }, []);
   
-  return <div>Jadwal Page</div>;
-} 
+  return (
+    <section className="w-full h-screen mt-24 p-4">
+      <h1>Jadwal</h1>
+    </section>
+  );
+}
 
 export default Jadwal;

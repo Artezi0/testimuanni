@@ -34,12 +34,13 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <section className="w-full h-screen mt-24 p-4">
+      <h1 className="mb-5">Cek Kluster</h1>
       <form onSubmit={handleSearch}>
         <input
           value={name}
           onChange={(e) => setName(e.target.value)}
-          placeholder="Masukkan nama murid"
+          placeholder="Masukkan nama lengkap"
         />
         <button>Cari</button>
       </form>
@@ -53,7 +54,7 @@ const Home = () => {
           <p>Gugus: {result.kelas}</p>
         </div>
       )}
-    </div>
+    </section>
   );
 }
 

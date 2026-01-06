@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar"
 import Home from "./pages/Home"
 import Jadwal from "./pages/Jadwal"
 import About from "./pages/About"
+import Footer from "./components/Footer"
 function App() {
   return (
     <BrowserRouter>
@@ -12,6 +13,7 @@ function App() {
         <Route path="/jadwal" element={<Jadwal />} />
         <Route path="/about" element={<About />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   )
 }
