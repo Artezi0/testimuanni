@@ -27,27 +27,32 @@ export default function Countdown() {
   }, [])
 
   return (
-    <div className="flex gap-2 text-center items-center">
+    <div className="flex gap-2 text-center justify-center items-center md:items-baseline">
   {Object.entries(timeLeft).map(([label, value], index, array) => (
-    <div key={label} className="flex items-center gap-2">
-      {/* Number container */}
+    <div key={label} className="flex gap-2 md:items-baseline">
+      
+      {/* Number + label */}
       <div className="flex flex-col items-center">
         <div className="w-14 sm:w-20 md:w-26 tabular-nums bg-[#7A1616] text-[#FBC33D] py-2 sm:py-4 md:py-6 px-2 sm:px-3 md:px-4 rounded-xl sm:rounded-2xl border-2 sm:border-4">
-        <div className="text-2xl sm:text-4xl md:text-6xl font-extrabold">
-          {value}
+          <div className="text-2xl sm:text-4xl md:text-6xl font-extrabold leading-none">
+            {value}
+          </div>
+        </div>
+        <div className="text-[#7A1616] text-[10px] sm:text-xs md:text-sm font-bold first-letter:uppercase">
+          {label}
         </div>
       </div>
-      <div className="text-[#7A1616] text-[10px] sm:text-xs md:text-m font-bold first-letter:uppercase">
-        {label}
-      </div>
-      </div>
-      {/* Colon (not after last item) */}
+
+      {/* Colon */}
       {index < array.length - 1 && (
-        <span className=" text-2xl sm:text-4xl md:text-5xl font-extrabold text-[#FBC33D] pb-4 sm:pb-6 md:pb-10 text-stroke">:</span>
+        <span className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-[#FBC33D] text-stroke leading-none">
+          :
+        </span>
       )}
 
     </div>
   ))}
 </div>
+
   )
 }

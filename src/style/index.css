@@ -35,14 +35,12 @@ body {
   width: 100%;
 }
 
-
-button {
-  background: none;
-  color: black;
-}
-
 li {
   list-style-type: none;
+}
+
+button {
+  cursor: pointer;
 }
 
 .text-stroke {
