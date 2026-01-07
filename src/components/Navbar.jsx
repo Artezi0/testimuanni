@@ -6,16 +6,16 @@ function Navbar() {
 
   return (
     <nav className='navbar fixed w-full p-4'>
-      <div className={`h-18 flex justify-between bg-white ${open ? 'rounded-t-2xl' : 'rounded-2xl'} items-center`}>
-        <div className='flex items-center gap-2 ml-10'>
-          <img src="/public/favicon.svg" alt="icon" height={50} width={50}/> 
-          <p className="text-xl text-black"><span className="font-bold">Testimuni Mansa</span> #10</p>
+      <div className={`h-15 flex justify-between bg-[#7A1616] border-2 border-[#FBC33D] ${open ? 'rounded-t-4xl' : 'rounded-4xl'} items-center`}>
+        <div className='flex items-center ml-5'>
+          <img className="mt-3" src="/public/logo.svg" alt="icon" height={300} width={300}/> 
         </div>
         {/* Desktop Navigation */}
-        <div className='hidden md:flex items-center gap-5 mr-10'>
-          <Link className="text-black" to="/">Home</Link>
-          <Link className="text-black" to="/about">About</Link>
-          <Link className="text-black" to="/jadwal">Jadwal</Link>
+        <div className='hidden md:flex items-center gap-5 mr-5'>
+          <li><a className="text-[#FBC33D]" href="/">Beranda</a></li>
+          <li><a className="text-[#FBC33D]" href="/about">Tentang</a></li>
+          <li><a className="text-[#FBC33D]" href="/jadwal">Booklet</a></li>
+          <li><a className="text-[#7A1616] bg-[#FBC33D] rounded-full px-4 py-1" href="/jadwal">Cek Kluster</a></li>
         </div>
         <button onClick={() => setOpen(!open)} className="md:hidden mr-10">!</button>
       </div>

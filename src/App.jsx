@@ -13,7 +13,6 @@ function App() {
         <Route path="/jadwal" element={<Jadwal />} />
         <Route path="/about" element={<About />} />
       </Routes>
-      <Footer />
     </BrowserRouter>
   )
 }
