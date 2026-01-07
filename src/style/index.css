@@ -20,10 +20,15 @@
   --color-text: 17 24 39;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   display: flex;
   place-items: center;
+  background-color: #F9C444;
 }
 
 #root {

@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="footer w-full h-100 bg-white">
+    <footer className="bg-white bottom-0 left-0 w-full h-20 p-4 z-50">
       <div className="m-4 text-black">
         <h1 className="footer_title">Testimuni Mansa #10</h1>
         <ul className="footer_list">
@@ -8,7 +8,7 @@ const Footer = () => {
           <li className="footer_list-item">21-22 Januari 2026</li>
           <li className="footer_list-item">Contact Person : 0812345789</li> 
         </ul>
-        <p>2026 TestiMuni. All rights reserved.</p>
+        <p>2026 Testimuni. All rights reserved.</p>
       </div>
     </footer>
   )
