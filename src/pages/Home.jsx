@@ -25,7 +25,6 @@ const Home = () => {
         setResult(null);
       } else {
         setResult(data);
-        console.log(result)
       }
     } catch (err) {
       setError("Gagal menghubungi server");
@@ -33,6 +32,8 @@ const Home = () => {
       setLoading(false);
     }
   };
+  
+  console.log(result)
 
   return (
     <section className="relative w-full">
