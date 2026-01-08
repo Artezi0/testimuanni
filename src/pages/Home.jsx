@@ -12,26 +12,31 @@ const Home = () => {
 
   const handleSearch = async (e) => {
     e.preventDefault();
-    setResult(null);
     if (!name.trim()) return;
 
-    try {
-      setLoading(true);
-      setError("");
+    setLoading(true);
+    setError("");
+    setResult(null);
 
+    try {
       const data = await getStudents(name);
-      if (data.error) {
+
+      if (data?.error) {
         setError(data.error);
-        setResult(null);
-      } else {
-        setResult(data);
+        return;
       }
+
+      setResult({
+        student: data.student,
+        sameKelas: data.sameKelas || []
+      });
+
     } catch (err) {
       setError("Gagal menghubungi server");
     } finally {
       setLoading(false);
     }
-  };
+  } 
   
   console.log(result)
 
@@ -93,11 +98,11 @@ const Home = () => {
           <div className="md:w-1/2 flex items-center justify-center"></div>
         </div>
       </div>
-      <div id="grouping" className="w-full h-screen pt-24 px-10">
+      <div id="grouping" className="w-full h-fit pt-24 px-10">
         <div className="w-full gap-14 mt-5 md:mt-20 flex flex-col md:flex-row">
           <div className="w-full md:w-1/2 flex flex-col justify-baseline">
             <h1 className="text-[#7A1616] font-bold leading-[1.1] sm:leading-[1.15] md:leading-tight tracking-tight text-[clamp(2rem,4vw,2.25rem)] md:text-[clamp(2.25rem,5vw,3rem)]">Check Your Grouping</h1>
-            <p className="text-[#7A1616] text-bold mb-6 text-justify">Hanya masukkan karakter berupa huruf, Contoh: Takbir Cendekia Aswaja</p>
+            <p className="text-[#7A1616] text-bold mb-6 text-justify">Hanya masukkan karakter berupa huruf, <span className="font-bold">Contoh: Takbir Cendekia Aswaja</span></p>
             <form onSubmit={handleSearch} className="flex flex-col md:flex-row gap-2 md:gap-4">
               <input
                 value={name}
@@ -109,21 +114,63 @@ const Home = () => {
             </form>
           </div>
           <div className="md:w-1/2 h-100 bg-[#7A1616] rounded-xl border-2 border-[#541313] p-4 text-[#FBC33D]  text-xl font-medium flex flex-col justify-center items-center">
+            <div className={`${loading || error || result ? "hidden" : "visible"}`}>
+              <div className="h-60 overflow-hidden">
+                <img className="w-full h-full object-contain" src="logo.gif" alt="logo kelompok" />
+              </div>
+              <h2 className="text-center">Find your grouping here!</h2>
+            </div>
             {loading && <h2>Loading...</h2>}
             {error && <h2>Not Found</h2>}
             {result && (
-              <div className="h-full text-center flex flex-col gap-2 items-center">
-                <div className="h-60 overflow-hidden">
-                  <img className="w-full h-full object-contain" src={result.logo} alt="logo kelompok" />
-                </div>
-                <h2>{result.nama}</h2>
-                <h2 className="px-4 py-1 bg-[#FBC33D] text-[#7A1616] rounded-2xl">{result.gugus} - {result.kelas}</h2>
+            <div className="h-full text-center flex flex-col gap-2 items-center">
+              <div className="h-60 overflow-hidden">
+                <img className="w-full h-full object-contain" src={result.student.logo} alt="logo kelompok" />
               </div>
+              <h2>{result.student.nama}</h2>
+              <h2 className="px-4 py-1 bg-[#FBC33D] text-[#7A1616] rounded-2xl">{result.student.gugus} - {result.student.kelas}</h2>
+            </div>
             )}
           </div>
         </div>
+        {result && result.sameKelas.length > 0 &&
+        <div className="mt-5 md:mt-20">
+          <h1 className="text-[#7A1616] font-bold leading-[1.1] sm:leading-[1.15] md:leading-tight tracking-tight text-[clamp(2rem,4vw,2.25rem)] md:text-[clamp(2.25rem,5vw,3rem)]">Group List</h1>
+          <p className="text-[#7A1616] text-bold text-justify">Students with the same grouping</p>
+          <ul className="w-full flex flex-col md:flex-row gap-4 my-6">
+            <a className="text-center px-4 py-1 md:text-xl bg-[#FBC33D] text-[#7A1616] font-medium rounded-full border-2 border-[#7A1616]" href={`https://wa.me/${result.student.cpa}`} target="_blank" rel="noopener noreferrer">Contact Person 1</a>
+            <a className="text-center px-4 py-1 md:text-xl bg-[#FBC33D] text-[#7A1616] font-medium rounded-full border-2 border-[#7A1616]" href={`https://wa.me/${result.student.cpb}`} target="_blank" rel="noopener noreferrer">Contact Person 2</a>
+          </ul>
+          <div className="overflow-x-auto">
+            <table className="min-w-[600px] md:min-w-full border-2 border-[#541313]">
+              <thead className="bg-[#7A1616]">
+                <tr>
+                  <th className="border border-[#541313] text-[#FBC33D] px-4 py-2 text-left">No</th>
+                  <th className="border border-[#541313] text-[#FBC33D] px-4 py-2 text-left">Nama</th>
+                  <th className="border border-[#541313] text-[#FBC33D] px-4 py-2 text-left">Gugus</th>
+                  <th className="border border-[#541313] text-[#FBC33D] px-4 py-2 text-left">Kelas</th>
+                </tr>
+              </thead>
+              <tbody>
+                {result.sameKelas.map((s, i) => (
+                  <tr
+                    key={`${s.nama}-${i}`}
+                    className="bg-[#FBC33D] hover:bg-[#7A1616] hover:text-[#FBC33D]"
+                  >
+                    <td className="border px-4 py-2">{i + 1}</td>
+                    <td className="border px-4 py-2">{s.nama}</td>
+                    <td className="border px-4 py-2">{s.gugus}</td>
+                    <td className="border px-4 py-2">{s.kelas}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        }
       </div>
-      <div className="h-50"></div>
+      <div className="mt-5 md:mt-20 w-full h-100 bg-[#7A1616]">
+      </div>
       {/* <Footer /> */}
     </section>
   );
