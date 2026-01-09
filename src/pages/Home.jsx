@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { getStudents } from "../services/studentService"
 import Countdown from "../components/Countdown";
-import { LuAlarmClock, LuPartyPopper, LuMegaphone, LuMic, LuArrowDownToLine, LuBookOpen, LuUser, LuSearch } from "react-icons/lu";
+import { LuAlarmClock, LuPartyPopper, LuMegaphone, LuMic, LuArrowDownToLine, LuBookOpen, LuUser, LuSearch, LuInstagram, LuGithub} from "react-icons/lu";
 import Footer from "../components/Footer";
 
 const Home = () => {
@@ -87,12 +87,12 @@ const Home = () => {
             <div className="md:w-3/4">
               <h2 className="w-fit px-4 py-1 md:text-xl bg-[#7A1616] text-[#FBC33D] font-medium rounded-full border-2 border-[#FBC33D]"><LuBookOpen className="inline mb-1 mr-2"/>Booklet</h2>
               <p className="my-4 text-[#FBC33D]">Don't forget to download and read the booklet to know everything you need to know about Testimuni #10.</p>
-              <a className="w-fit px-4 py-1 md:text-xl bg-[#FBC33D] text-[#7A1616] font-medium rounded-full border-2 border-[#7A1616]" href="#"><LuArrowDownToLine className="inline mb-1 mr-1" />Download Booklet</a>
+              <a className="w-fit px-4 py-1 md:text-xl bg-[#FBC33D] text-[#7A1616] font-medium rounded-full border-2 border-[#7A1616]" href="https://drive.google.com/drive/folders/1akzkE8j9l2K6tpRU3ePI1cgwwfN4iouT?usp=drive_link" target="_blank"><LuArrowDownToLine className="inline mb-1 mr-1" />Download Booklet</a>
             </div>
             <div className="md:w-3/4">
               <h2 className="w-fit px-4 py-1 md:text-xl bg-[#7A1616] text-[#FBC33D] font-medium rounded-full border-2 border-[#FBC33D]"><LuUser className="inline mb-1 mr-1"/>Twibbon</h2>
               <p className="my-4 text-[#FBC33D]">Also feel free to download our twibbon and upload it to your instagram story by adding your own name to it!</p>
-              <a className="w-fit px-4 py-1 md:text-xl bg-[#FBC33D] text-[#7A1616] font-medium rounded-full border-2 border-[#7A1616]" href="#"><LuArrowDownToLine className="inline mb-1 mr-1" />Download Twibbon</a>
+              <a className="w-fit px-4 py-1 md:text-xl bg-[#FBC33D] text-[#7A1616] font-medium rounded-full border-2 border-[#7A1616]" href="https://drive.google.com/drive/folders/1TJcee9Q6ZAsff9acJpNZJSONoFDUWG0_?usp=drive_link" target="_blank" ><LuArrowDownToLine className="inline mb-1 mr-1" />Download Twibbon</a>
             </div>
           </div>
           <div className="md:w-1/2 flex items-center justify-center"></div>
@@ -169,9 +169,30 @@ const Home = () => {
         </div>
         }
       </div>
-      <div className="mt-5 md:mt-20 w-full h-100 bg-[#7A1616]">
-      </div>
-      {/* <Footer /> */}
+      <footer className="mt-5 md:mt-20 w-full h-fit flex bg-[#7A1616] font-normal text-[#FBC33D] border-t-2 border-[#541313]">
+        <div className="w-1/2 flex flex-col justify-center items-baseline p-15">
+          <img className="
+            h-18
+            sm:h-20
+            md:h-28 
+            lg:h-32
+            w-auto 
+          " src="logo.svg" alt="logo" />
+          <ul className="my-4">
+            <li>MAN 1 Yogyakarta, Jl. C. Simanjuntak No.60, Terban, Kec. Gondokusuman, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55223</li>
+            <li>21-22 Januari 2026</li>
+            <li>Contact Person : 0812345789</li> 
+          </ul>
+          <p>2026 Testimuni. All rights reserved.</p>
+        </div>
+        <div className="w-1/2 flex flex-col justify-center p-15">
+          <ul>
+            <li><LuInstagram className="inline"/> Instagram</li>
+            {/* <li><LuTiktok /> Tiktok</li> */}
+            <li><LuGithub className="inline"/> Github</li>
+          </ul>
+        </div>
+      </footer>
     </section>
   );
 }
