@@ -43,7 +43,7 @@ const Home = () => {
   return (
     <section className="relative w-full overflow-x-hidden">
       <div id="home" className="pb-16 bg-linear-to-tl from-[#0986FF] from-40% to-[#B2E1FF] w-full h-fit flex flex-col md:flex-row pt-24 md:pt-0 relative">
-        <div className="w-fill md:w-fill h-fit absolute bottom-10">
+        <div className="w-fill md:w-fill h-fit absolute bottom-0">
           <img src="land.webp" className=" w-full h-full object-contain"/>
         </div>
         <div className="w-full md:w-1/2 overflow-hidden md:p-15 p-5 z-10">
