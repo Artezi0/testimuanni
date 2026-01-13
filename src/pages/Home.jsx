@@ -228,8 +228,8 @@ const Home = () => {
             </ul>
             <ul className="">
               <p className="font-medium md:text-xl">Contact Person</p>
-              <li><a className="text-[#FBC33D]" href="https:/wa.me/6285786628288" target="_blank">+62 857-8662-8288 (Ais)</a></li>
-              <li><a className="text-[#FBC33D]" href="httsp:/wa.me/6281904038377" target="_blank">+62 819-0403-8377 (Scheva)</a></li>
+              <li><a className="text-[#FBC33D]" href="https://wa.me/6285786628288" target="_blank">+62 857-8662-8288 (Ais)</a></li>
+              <li><a className="text-[#FBC33D]" href="https://wa.me/6281904038377" target="_blank">+62 819-0403-8377 (Scheva)</a></li>
             </ul>
             <ul className="">
               <p className="font-medium md:text-xl">Social Media</p>
