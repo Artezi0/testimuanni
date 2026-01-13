@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 
 export default function Countdown() {
-  const targetDate = new Date("2026-01-21T00:00:00")
+  const targetDate = new Date("2026-01-20T00:00:00")
 
   const calculateTimeLeft = () => {
     const difference = targetDate - new Date()
@@ -31,12 +31,12 @@ export default function Countdown() {
   {Object.entries(timeLeft).map(([label, value], index, array) => (
     <div key={label} className="flex gap-2 items-baseline">
       <div className="flex flex-col items-center">
-        <div className="w-14 sm:w-20 md:w-36 tabular-nums bg-[#7A1616] text-[#FBC33D] py-2 sm:py-4 md:py-6 px-2 sm:px-3 md:px-4 rounded-xl sm:rounded-2xl border-2 sm:border-4">
-          <div className="text-2xl sm:text-4xl md:text-8xl font-extrabold leading-none">
+        <div className="w-14 sm:w-20 md:w-32 tabular-nums bg-[#7A1616] text-[#FBC33D] py-2 sm:py-4 md:py-6 px-2 sm:px-3 md:px-4 rounded-xl sm:rounded-2xl border-2 sm:border-4">
+          <div className="text-2xl sm:text-4xl md:text-7xl font-extrabold leading-none">
             {value}
           </div>
         </div>
-        <div className="text-[#7A1616] text-[10px] sm:text-xs md:text-sm font-bold first-letter:uppercase">
+        <div className="text-[#7A1616] text-[10px] sm:text-xs md:text-lg font-medium first-letter:uppercase">
           {label}
         </div>
       </div>
