@@ -42,8 +42,8 @@ const Home = () => {
 
   return (
     <section className="relative w-full overflow-x-hidden">
-      <div id="home" className="pb-16 bg-linear-to-tl from-[#0986FF] from-40% to-[#B2E1FF] w-full h-fit flex flex-col md:flex-row pt-24 md:pt-0 relative">
-        <div className="w-fill md:w-fill h-fit absolute bottom-0">
+      <div id="home" className="pb-16 bg-linear-to-tl from-[#0986FF] from-40% to-[#B2E1FF] w-full h-fit flex flex-col md:flex-row pt-24 md:pt-24 xl:pt-0 relative">
+        <div className="w-fill md:w-fill h-fit absolute bottom-10 hidden sm:block">
           <img src="land.webp" className=" w-full h-full object-contain"/>
         </div>
         <div className="w-full md:w-1/2 overflow-hidden md:p-15 p-5 z-10">
@@ -216,7 +216,7 @@ const Home = () => {
                 w-auto 
               " src="logo.svg" alt="logo" />
             </div>
-            <p className="">2026 Testimuni #10. All Rights Reserved</p>
+            <p className="">2026 By Divisi Multimedia Testimuni #10. All Rights Reserved</p>
           </div>
           <div className="flex flex-col md:flex-row md:w-1/2 h-full justify-between px-15 gap-5 md:gap-0">
             <ul className="">
